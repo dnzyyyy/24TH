@@ -1,65 +1,80 @@
 body {
-  margin: 0;
-  padding: 0;
-  background-color: #fff0f6;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  overflow: hidden;
-  height: 100vh;
-  width: 100vw;
-  position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background-color: #ffeef1;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    overflow: hidden;
 }
 
 .container {
-  text-align: center;
-  max-width: 90%;
-  margin: auto;
-  padding-top: 40px;
+    text-align: center;
+    padding: 20px;
 }
 
 h1 {
-  font-size: 2.2em;
-  color: #ff4d88;
-  margin-bottom: 20px;
+    font-size: 2.5em;
+    color: #ff5e7e;
 }
 
-.us-img {
-  width: 300px;
-  border-radius: 20px;
-  margin-bottom: 30px;
-  box-shadow: 0 0 15px #ff80bf;
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px;
+    flex-wrap: wrap;
 }
 
-.button-row {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  position: relative;
+.yes-button, .no-button {
+    font-size: 1.5em;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
 
-.yes-btn {
-  font-size: 1.5em;
-  padding: 15px 30px;
-  background-color: #ff4da6;
-  color: white;
-  border: none;
-  border-radius: 30px;
-  text-decoration: none;
-  box-shadow: 0 5px 15px rgba(255, 77, 166, 0.5);
-  transition: transform 0.2s ease-in-out;
-  transform-origin: center;
-  z-index: 2;
+.yes-button {
+    background-color: #ff90b3;
+    color: white;
 }
 
-.no-btn {
-  font-size: 1em;
-  padding: 10px 20px;
-  background-color: #ffd6e7;
-  border: 2px dashed #ff80bf;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-  z-index: 1000;
-  position: relative;
+.no-button {
+    background-color: #aaa;
+    color: white;
+    position: absolute;
+}
+
+.gif_container img {
+    max-width: 300px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.us-image {
+    max-width: 250px;
+    margin-top: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #ffc0cb;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+        padding: 0 10px;
+    }
+    .yes-button, .no-button {
+        font-size: 1.2em;
+        padding: 10px 20px;
+    }
+    .gif_container img, .us-image {
+        max-width: 90vw;
+    }
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
