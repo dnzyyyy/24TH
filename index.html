@@ -1,77 +1,52 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Most Perfect Boyfriend?</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Have the Most Perfect Boyfriend Ever?</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Do you have the most perfect boyfriend ever?</h1>
-    <img src="us.jpg" class="us-img" alt="Us Photo" />
-
-    <div class="button-row">
-      <a href="yes.html" class="yes-btn" id="yesBtn" data-scale="1">Yes, of course! 💖</a>
-      <button class="no-btn" id="noBtn">Hmm... maybe?</button>
+    <div class="container">
+        <h1>Do you have the most perfect boyfriend ever?</h1>
+        <div class="buttons">
+            <button class="yes-button" onclick="handleYesClick()">Yes, of course!</button>
+            <button class="no-button" onclick="handleNoClick()">No</button>
+        </div>
+        <div class="gif_container">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif" alt="Cute GIF">
+        </div>
+        <img src="us.jpg" alt="Us" class="us-image">
     </div>
-  </div>
+    <script src="script.js"></script>
+</body>
+</html>
 
-  <script>
-    const noBtn = document.getElementById("noBtn");
-    const yesBtn = document.getElementById("yesBtn");
-    let clickCount = 0;
-    let yesScale = 1;
-    let noScale = 1;
-
-    const messages = [
-      "Hmm... maybe?",
-      "Are you sure?",
-      "Really sure??",
-      "Seriously?! 😢",
-      "Pookie please 😭",
-      "You're breaking my heart 💔",
-      "Just say yes 😩",
-      "You know the answer 😭",
-      "C'mon 😔",
-      "JUST SAY YES 😡"
-    ];
-
-    function randomPosition() {
-      const btnWidth = noBtn.offsetWidth;
-      const btnHeight = noBtn.offsetHeight;
-      const maxX = window.innerWidth - btnWidth;
-      const maxY = window.innerHeight - btnHeight;
-      const x = Math.random() * maxX;
-      const y = Math.random() * maxY;
-      return { x, y };
-    }
-
-    noBtn.addEventListener("click", () => {
-      // Change text
-      clickCount = (clickCount + 1) % messages.length;
-      noBtn.textContent = messages[clickCount];
-
-      // Move randomly
-      const pos = randomPosition();
-      noBtn.style.position = "fixed";
-      noBtn.style.left = `${pos.x}px`;
-      noBtn.style.top = `${pos.y}px`;
-      noBtn.style.zIndex = "1000";
-
-      // Grow Yes button (faster now)
-      yesScale *= 1.35;
-      yesBtn.style.transform = `scale(${yesScale})`;
-
-      // Shrink No button slowly
-      noScale *= 0.95;
-      noBtn.style.transform = `scale(${noScale})`;
-
-      // Redirect when Yes button gets too big
-      if (yesScale >= 40) {
-        window.location.href = "yes.html";
-      }
-    });
-  </script>
+<!-- yes.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sweetest Answer 💖</title>
+    <link rel="stylesheet" href="yes_style.css">
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+    <div class="overlay">
+        <div class="letter">
+            <h1>My Love 💌</h1>
+            <p>
+                From the moment we met, you've made every single day brighter. <br><br>
+                You're more than I ever dreamed of. Kind, funny, cute (the cutest!!), and so full of love. <br>
+                I may joke around, but deep down, I truly believe I'm the luckiest guy in the world to call you mine. 💖 <br><br>
+                Thank you for being the most amazing girlfriend ever. I love you endlessly.
+            </p>
+            <p class="signature">— Your perfect boyfriend 💕</p>
+        </div>
+    </div>
 </body>
 </html>
