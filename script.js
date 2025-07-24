@@ -1,38 +1,45 @@
+<!-- script.js -->
 const messages = [
-  "Are you really sure about that?",
-  "Maybe think again 😢",
-  "C'mon, he's adorable!",
-  "He brings you snacks, remember?",
-  "Pretty perfect, isn't he?",
-  "You know he's trying his best 💘",
-  "Okay now you're just teasing 😭",
-  "You're breaking his perfect heart!",
-  "Last chance... 😔",
-  "Just admit it, he's the best! 💖"
+    "Are you sure?",
+    "Really sure??",
+    "Pookie please...",
+    "Think about it!",
+    "Don’t break my heart 💔",
+    "Noooo don't say that!",
+    "Last chance! 💘",
+    "One more try?",
+    "You're joking right?? 😭",
+    "Just say yes arianeee!"
 ];
 
 let messageIndex = 0;
+let yesButton = document.querySelector('.yes-button');
+let noButton = document.querySelector('.no-button');
+let yesFontSize = 24;
+let noFontSize = 24;
 
 function handleNoClick() {
-  const noButton = document.querySelector('.no-button');
-  const yesButton = document.querySelector('.yes-button');
+    // Update no button text
+    noButton.textContent = messages[messageIndex];
+    messageIndex = (messageIndex + 1) % messages.length;
 
-  noButton.textContent = messages[messageIndex];
-  messageIndex = (messageIndex + 1) % messages.length;
+    // Shrink no button
+    noFontSize *= 0.92;
+    noButton.style.fontSize = `${noFontSize}px`;
 
-  // Grow the Yes button a bit
-  const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
-  yesButton.style.fontSize = `${currentSize * 1.1}px`;
+    // Random position for no button
+    const maxX = window.innerWidth - noButton.offsetWidth;
+    const maxY = window.innerHeight - noButton.offsetHeight;
+    const randX = Math.random() * maxX;
+    const randY = Math.random() * maxY;
+    noButton.style.left = `${randX}px`;
+    noButton.style.top = `${randY}px`;
 
-  // Move the No button randomly
-  const maxX = window.innerWidth - noButton.offsetWidth - 20;
-  const maxY = window.innerHeight - noButton.offsetHeight - 20;
-  const x = Math.floor(Math.random() * maxX);
-  const y = Math.floor(Math.random() * maxY);
-  noButton.style.left = `${x}px`;
-  noButton.style.top = `${y}px`;
+    // Grow yes button faster
+    yesFontSize *= 1.15;
+    yesButton.style.fontSize = `${yesFontSize}px`;
 }
 
 function handleYesClick() {
-  window.location.href = "yes_page.html";
+    window.location.href = "yes.html";
 }
